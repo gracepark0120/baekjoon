@@ -11,3 +11,17 @@ in)
 out)
 첫째 줄에 그룹 단어의 개수를 출력한다.
 """
+import re
+
+m = int(input())
+num = m
+for i in range(m):
+    word = input()
+    for i in range(len(word)-1):
+        if word[i] == word[i+1]:
+            continue
+        elif word[i] in word[i+1:]:
+            num = num -1
+            break
+
+print(num)
