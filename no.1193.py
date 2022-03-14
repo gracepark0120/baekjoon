@@ -19,19 +19,19 @@ out)
 
 """
 n = int(input())
-i = 1 # i번째 대각선
-sum = 0
+i = 0 # i번째 대각선
+sum = 0 # 대각선에서 가장 큰 수
 while n >sum :
-    i +=1
+    i += 1
     sum += i
 
 remain = sum - n
-print(remain, i)
-if i % 2 == 0: # 짝수 번째 대각선
-    a = i - remain +1 #가로
-    b = remain # 세로
-else :
-    a = remain #가로
-    b = i - remain + 1 # 세로
 
-print("%d/%d" %(b, a))
+if i % 2 == 0: # 짝수 번째 대각선
+    a = i - remain# 분자
+    b = remain + 1# 분모
+else :
+    a = remain + 1  # 분자
+    b = i - remain#  분모
+
+print("%d/%d" %(a, b))
