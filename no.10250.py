@@ -24,5 +24,19 @@ out)
 """
 
 t = int(input())
+anw_list =[]
 for num in range(t):
     h,w,n = map(int, input().split()) # h: 높이 w: 너비 n: 몇 번째 손님인지
+    sum = 0
+    a = 0 # 가로
+    while sum < n:
+        sum += h
+        a += 1
+    b = n - h*(a-1)  # 세로
+    if b==0 : b=h ; a-=1
+    anw_list.append(b*100 + a)
+
+for anw in anw_list:
+    print(anw)
+
+
