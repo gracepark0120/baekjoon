@@ -12,31 +12,47 @@ out)
 """
 
 n = int(input())
-if n%5 ==0 : #5의 배수
-    print(n//5)
-elif n%3 == 0:
-    print(n//3)
+a_max = n//5
+b_max = n//3
+anw_list = []
+for a in range(a_max+1):
+    for b in range(b_max+1):
+        sum = 5 * a + 3 * b
+        if sum == n:
+            anw_list.append(a+b)
+        b += 1
+    a += 1
+
+if not anw_list: #리스트가 비어있음
+    print(-1)
 else:
+   # print(anw_list)
+    print(min(anw_list))
 
+# 위 코드 걸린 시간 : 488 ms 문제는 맞았지만 시간이 너무 오래 걸림.
+"""
+아래는 인터넷에서 찾은 코드. 걸린 시간 76ms 로 월등히 빠르다.
+(이중 for문 때문)
 
+나도 이렇게 생각해서 풀었었지만 아래 코드는 답이 여러 개일 때 최소를 구하지 
+못한다고 생각하여 수정했었다. 
+예를 들면 n = 21 일때 답은 7과 5가 나올 수 있다.
+내가 간과한 것은 먼저 5로 나누면 괜찮다는 것이다.
+.먼저 3으로 나누면 내가 생각한 문제가 발생할 수 있지만 
+더 큰 수 인 5로 먼저 나누면 그런 문제를 해결할 수 있다.
+따라서 아래의 코드가 더 잘 짠 코드이다.
 
+sugar = int(input())
 
+bag = 0
+while sugar >= 0 :
+    if sugar % 5 == 0 :  # 5의 배수이면
+        bag += (sugar // 5)  # 5로 나눈 몫을 구해야 정수가 됨
+        print(bag)
+        break
+    sugar -= 3  
+    bag += 1  # 5의 배수가 될 때까지 설탕-3, 봉지+1
+else :
+    print(-1)
 
-num = n//5
-result = n%5
-
-if result != 0: #5의 배수가 아님
-    if n %3 != 0: # n이 3의 배수가 아님
-        print(-1)
-    elif result %3 == 0: # result가 3의 배수
-        num = num + num//3
-        print(num)
-    elif n%3 ==0:
-        print(n//3)
-    else: #result가 3의 배수 아님
-        print(-1)
-
-else: #5의 배수
-    print(num)
-
-
+"""
