@@ -19,7 +19,7 @@ for i in range(2, N+1): # 아래 코드와 달리 for문 한번으로 해결
         while N % i == 0:
             print(i)
             N = N // i
-    elif N == 1: break # N이 더이상 나눠지지 않음
+    elif N == 1: break # N이 더이상 나눠지지 않음 근데 이거 추가했더니 더 시간 오래걸림,,
 
 """  반복문이 너무 많음. for 문을 n-1번 반복해야함, 시간 초과!          
 while num != N-1:
